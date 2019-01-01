@@ -1,0 +1,138 @@
+<!doctype>
+<html>
+    <head>
+        <title>第一学学期打扮计算练习题</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
+    </head>
+    <style>
+    #app {
+        width:100%;
+       /* background: #f00;*/
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+    #app table{
+        top: 50%;
+        left: 50;
+        width: 90%;
+       /* background-color: #ff0;*/
+    }
+    #app table tr td {
+        width: 100px;
+        white-space:pre;
+        border: 2px solid;
+        font-size: 20px;
+        height: 40px;
+        
+    }
+    #app table tr td span:first-child{
+        width: 10px;
+        height: 10px;
+        box-sizing: border-box;
+        /*border: 2px dotted;*/
+        border-radius: 50%;
+        font-size: 12px;
+        margin:auto 3px;
+        padding: 2px;
+       
+        white-space: pre-wrap;
+    }
+    #app table tr td span:last-child{
+        white-space: pre-wrap;
+    }
+    </style>
+    <body>
+        <div id="app">
+            <h1>{{title}}</h1>
+            <table>
+                <tr>
+                    <td>班级：</td>
+                    <td>姓名：</td>
+                    <td>日期：</td>
+                    <td>时间：</td>
+                    <td>分数：</td>
+                </tr>
+                <tr v-for = "(item,index) in getTwoNum"  :key = index >
+                    <td><span>   </span><span>{{item[0]}}</span></td>
+                    <td><span>   </span><span>{{item[1]}}</span></td>
+                    <td><span>   </span><span>{{item[2]}}</span></td>
+                    <td><span>   </span><span>{{item[3]}}</span></td>
+                    <td><span>   </span><span>{{item[4]}}</span></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                title:'第一学期大班计算练习题',
+                arr: [[1,2,3,4,5]]
+            },
+            computed: {
+                // 10以内加减法
+                getTwoNum: function () {
+                    var tempArr1 = []
+                    var tempArr2 = []
+                    var tempArr3 = []
+                    for ( var i = 0; i <= 10; i++) {
+                        for(var j = 0; j <= 10-i; j++) {
+                            // 两位数加法
+                            tempArr1.push(i + '+' + j + '=')
+                            //console.log(tempArr1)
+                            // 两位数减法
+                            tempArr1.push((10-j) + '-' + (i) + '=')
+                            // console.log(tempArr1)
+                            // 带括号，两位数加减法
+                            tempArr2.push( i + '+' + '(  )' + '=' + (10-j))
+                            tempArr2.push('(  )' + '+' + i + '='+ (10-j) )
+                            tempArr2.push((10-j) + '-' + '(  )'+ '=' + i)
+                            tempArr2.push('(  )'+ '-' + j + '=' + i)
+                            // 三位数加减法
+                            for (var k = 0; k <=10-j-i; k ++) {
+                                 tempArr3.push(i+ '+' + j +'+' + k + '=')  
+                            }
+                           for(var n = 0; n <= i + j; n++ ) {
+                                tempArr3.push(i+ '+' + j +'-' + n + '=')
+                              if(j >= i && j - i - n >= 0) {
+                                tempArr3.push(j+ '-' + i +'-' + n + '=')
+                              }
+                           }
+                           for (var m = 0; m <= 10 - j + i; m++) {
+                               if(j>=i) {
+                                 tempArr3.push(j+ '-' + i +'+' + m + '=')
+                               } 
+                           }
+                        }
+                    }
+                //console.log(tempArr2)
+                tempArr1.sort(this.randomSort)
+                tempArr2.sort(this.randomSort)
+                tempArr3.sort(this.randomSort)
+                // console.log(tempArr1)
+                var arr = []
+                var arr1 = tempArr1.slice(0,20)
+                var arr2 = tempArr2.slice(0,20)
+                var arr3 = tempArr3.slice(0,20)
+                var arr4 = tempArr1.slice(20,40)
+                var arr5 = tempArr2.slice(20,40)
+                for(var o = 0; o <= 19; o++) {
+                    arr.push([arr1[o],arr2[o],arr3[o],arr4[o],arr5[o]])
+                }
+                console.log(arr1[19])
+                console.log(arr)
+                return arr
+                }
+            },
+            // 随机排序 通过随机产生0到1的数，然后判断是否大于0.5从而影响排序，产生随机性的效果
+            methods:{
+            randomSort: function (a,b) {
+                 return Math.random()>.5?-1:1
+            }
+            }
+        })
+    </script>
+    
+</html>
