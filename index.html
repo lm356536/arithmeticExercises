@@ -1,7 +1,7 @@
 <!doctype>
 <html>
     <head>
-        <title>第一学学期打扮计算练习题2</title>
+        <title>第一学学期计算练习题</title>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
     </head>
     <style>
@@ -22,25 +22,27 @@
     #app table tr td {
         width: 100px;
         white-space:pre;
-        border: 2px solid;
+        border: 0px solid;
         font-size: 20px;
         height: 40px;
         
     }
-    #app table tr td span:first-child{
-        width: 10px;
-        height: 10px;
-        box-sizing: border-box;
-        /*border: 2px dotted;*/
-        border-radius: 50%;
+  #app  /deep/ span:first-child{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        border: 1px dotted;
+        border-radius: 30px;
         font-size: 12px;
-        margin:auto 3px;
-        padding: 2px;
-       
         white-space: pre-wrap;
     }
-    #app table tr td span:last-child{
+    #app  /deep/ span:last-child{
+        margin-left: 2px;
         white-space: pre-wrap;
+        display: block;
+        float: left;
     }
     </style>
     <body>
@@ -55,11 +57,11 @@
                     <td>分数：</td>
                 </tr>
                 <tr v-for = "(item,index) in getTwoNum"  :key = index >
-                    <td><span>   </span><span>{{item[0]}}</span></td>
-                    <td><span>   </span><span>{{item[1]}}</span></td>
-                    <td><span>   </span><span>{{item[2]}}</span></td>
-                    <td><span>   </span><span>{{item[3]}}</span></td>
-                    <td><span>   </span><span>{{item[4]}}</span></td>
+                    <td><span> {{index+1}} </span><span>{{item[0]}}</span></td>
+                    <td><span> {{index+21}}  </span><span>{{item[1]}}</span></td>
+                    <td><span> {{index+41}}  </span><span>{{item[2]}}</span></td>
+                    <td><span> {{index+61}}  </span><span>{{item[3]}}</span></td>
+                    <td><span> {{index+81}}  </span><span>{{item[4]}}</span></td>
                 </tr>
             </table>
         </div>
@@ -68,7 +70,7 @@
         var app = new Vue({
             el: '#app',
             data: {
-                title:'第一学期大班计算练习题',
+                title:'第一学期口算练习题',
                 arr: [[1,2,3,4,5]]
             },
             computed: {
