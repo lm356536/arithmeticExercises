@@ -23,23 +23,22 @@
         width: 100px;
         white-space:pre;
         border: 0px solid;
-        font-size: 20px;
+        font-size: 18px;
         height: 40px;
-        
     }
-  #app  /deep/ span:first-child{
-        display: table-cell;
-        vertical-align: middle;
+  #app  /deep/ div:first-child{
+        line-height: 24px;
         text-align: center;
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
         border: 1px dotted;
-        border-radius: 30px;
+        border-radius:50%;
         font-size: 12px;
         white-space: pre-wrap;
+        float: left;
+        margin-right:5px;
     }
-    #app  /deep/ span:last-child{
-        margin-left: 2px;
+    #app  /deep/ div:last-child{
         white-space: pre-wrap;
         display: block;
         float: left;
@@ -57,11 +56,11 @@
                     <td>分数：</td>
                 </tr>
                 <tr v-for = "(item,index) in getTwoNum"  :key = index >
-                    <td><span> {{index+1}} </span><span>{{item[0]}}</span></td>
-                    <td><span> {{index+21}}  </span><span>{{item[1]}}</span></td>
-                    <td><span> {{index+41}}  </span><span>{{item[2]}}</span></td>
-                    <td><span> {{index+61}}  </span><span>{{item[3]}}</span></td>
-                    <td><span> {{index+81}}  </span><span>{{item[4]}}</span></td>
+                    <td><div>{{index+1}}</div><div>{{item[0]}}</div></td>
+                    <td><div>{{index+21}}</div><div>{{item[1]}}</div></td>
+                    <td><div>{{index+41}}</div><div>{{item[2]}}</div></td>
+                    <td><div>{{index+61}}</div><div>{{item[3]}}</div></td>
+                    <td><div>{{index+81}}</div><div>{{item[4]}}</div></td>
                 </tr>
             </table>
         </div>
