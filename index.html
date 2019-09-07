@@ -1,7 +1,7 @@
 <!doctype>
 <html>
     <head>
-        <title>第一学学期计算练习题</title>
+        <title>第一学期口算练习题</title>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
     </head>
     <style>
@@ -22,7 +22,7 @@
     #app table tr td {
         width: 100px;
         white-space:pre;
-        border: 0px solid;
+        border: 1px solid;
         font-size: 18px;
         height: 40px;
     }
@@ -66,7 +66,10 @@
         </div>
     </body>
     <script>
-        var app = new Vue({
+        const INIT_NUM1 = 1
+        const INIT_NUM2 = 0
+        const INIT_NUM3 = 1
+        let app = new Vue({
             el: '#app',
             data: {
                 title:'第一学期口算练习题',
@@ -75,11 +78,11 @@
             computed: {
                 // 10以内加减法
                 getTwoNum: function () {
-                    var tempArr1 = []
-                    var tempArr2 = []
-                    var tempArr3 = []
-                    for ( var i = 0; i <= 10; i++) {
-                        for(var j = 0; j <= 10-i; j++) {
+                    let tempArr1 = []
+                    let tempArr2 = []
+                    let tempArr3 = []
+                    for ( let i = INIT_NUM1; i <= 10; i++) {
+                        for(let j = INIT_NUM2; j <= 10-i; j++) {
                             // 两位数加法
                             tempArr1.push(i + '+' + j + '=')
                             //console.log(tempArr1)
@@ -92,16 +95,16 @@
                             tempArr2.push((10-j) + '-' + '(  )'+ '=' + i)
                             tempArr2.push('(  )'+ '-' + j + '=' + i)
                             // 三位数加减法
-                            for (var k = 0; k <=10-j-i; k ++) {
+                            for (let k = INIT_NUM3; k <=10-j-i; k ++) {
                                  tempArr3.push(i+ '+' + j +'+' + k + '=')  
                             }
-                           for(var n = 0; n <= i + j; n++ ) {
+                           for(let n = INIT_NUM3; n <= i + j; n++ ) {
                                 tempArr3.push(i+ '+' + j +'-' + n + '=')
                               if(j >= i && j - i - n >= 0) {
                                 tempArr3.push(j+ '-' + i +'-' + n + '=')
                               }
                            }
-                           for (var m = 0; m <= 10 - j + i; m++) {
+                           for (let m = INIT_NUM3; m <= 10 - j + i; m++) {
                                if(j>=i) {
                                  tempArr3.push(j+ '-' + i +'+' + m + '=')
                                } 
@@ -113,13 +116,13 @@
                 tempArr2.sort(this.randomSort)
                 tempArr3.sort(this.randomSort)
                 // console.log(tempArr1)
-                var arr = []
-                var arr1 = tempArr1.slice(0,20)
-                var arr2 = tempArr2.slice(0,20)
-                var arr3 = tempArr3.slice(0,20)
-                var arr4 = tempArr1.slice(20,40)
-                var arr5 = tempArr2.slice(20,40)
-                for(var o = 0; o <= 19; o++) {
+                let arr = []
+                let arr1 = tempArr1.slice(0,20)
+                let arr2 = tempArr2.slice(0,20)
+                let arr3 = tempArr3.slice(0,20)
+                let arr4 = tempArr1.slice(20,40)
+                let arr5 = tempArr2.slice(20,40)
+                for(let o = 0; o <= 19; o++) {
                     arr.push([arr1[o],arr2[o],arr3[o],arr4[o],arr5[o]])
                 }
                 console.log(arr1[19])
