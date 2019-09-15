@@ -1,0 +1,108 @@
+body {
+    color: #333
+}
+
+.font15 {
+    font-size: 15px;
+}
+
+.font12 {
+    font-size: 12px;
+}
+
+.font13 {
+    font-size: 13px;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+.font16 {
+    font-size: 16px;
+}
+
+.font18 {
+    font-size: 18px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.pt12 {
+    padding-top: 12px;
+}
+
+.pb16 {
+    padding-bottom: 16px;
+}
+
+.pb22 {
+    padding-bottom: 22px;
+}
+
+.pt24 {
+    padding-top: 24px
+}
+
+.pt32 {
+    padding-top: 32px
+}
+
+.mr9 {
+    margin-right: 9px;
+}
+
+.bg_set {
+    color: rgba(255, 109, 105, 1)!important;
+    border: none !important;
+    background: transparent!important;
+}
+
+.but_jlw {
+    background: linear-gradient(178deg, rgba(255, 109, 105, 1) 0%, rgba(255, 81, 114, 1) 100%);
+    border-radius: 30px !important;
+    width: 87%;
+    max-width: 280px;
+    color: #fff;
+    height: 47px !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.line-1-5 {
+    line-height: 1.5
+}
+
+.bgf {
+    background-color: #fff;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.img_title {
+    display: inline-block;
+    width: 36%;
+    max-width: 111px;
+}
+
+.colorF {
+    color: #fff;
+}
+
+.color6 {
+    color: #666
+}
+
+.colorblack {
+    color: #202557
+}

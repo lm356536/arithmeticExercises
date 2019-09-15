@@ -1,7 +1,7 @@
 <!doctype>
 <html>
     <head>
-        <title>第一学期口算练习题</title>
+        <title>口算练习题</title>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
     </head>
     <style>
@@ -22,11 +22,12 @@
     #app table tr td {
         width: 100px;
         white-space:pre;
-        border: 1px solid;
+        border: 0px solid;
         font-size: 18px;
-        height: 40px;
+        height: 35px;
+        padding-left:15px;
     }
-  #app  /deep/ div:first-child{
+  /* #app  /deep/ div:first-child{
         line-height: 24px;
         text-align: center;
         width: 24px;
@@ -37,32 +38,78 @@
         white-space: pre-wrap;
         float: left;
         margin-right:5px;
-    }
-    #app  /deep/ div:last-child{
+    } */
+    /* #app  /deep/ div:last-child{
         white-space: pre-wrap;
         display: block;
         float: left;
+    } */
+   .bottom-content {
+        border: 1px solid;
+        width: 90%;
+        height: 150px;
+    }
+    #app /deep/ .left {
+        background-color: #ccc;
+        width: 30%;
+        height: 149px;
+        float: left;
+        border-right: 1px dashed;
+    }
+    #app /deep/ .right {
+        padding:5px 0px 0px 20px;
+        /* background-color: #ccc; */
+        width: 70%;
+        height: 150px;
+        /* float: right !important; */
+    }
+    #app  /deep/ .border-bottom-left {
+        text-align: right;
+    }
+    #app  /deep/ .border-bottom-right {
+        text-align: left;
+        border-bottom: 1px solid;
+        height: 30px;
     }
     </style>
     <body>
         <div id="app">
             <h1>{{title}}</h1>
             <table>
-                <tr>
+                <!-- <tr>
                     <td>班级：</td>
                     <td>姓名：</td>
                     <td>日期：</td>
                     <td>时间：</td>
                     <td>分数：</td>
-                </tr>
-                <tr v-for = "(item,index) in getTwoNum"  :key = index >
+                </tr> -->
+                <!-- <tr v-for = "(item,index) in getTwoNum"  :key = index >
                     <td><div>{{index+1}}</div><div>{{item[0]}}</div></td>
                     <td><div>{{index+21}}</div><div>{{item[1]}}</div></td>
                     <td><div>{{index+41}}</div><div>{{item[2]}}</div></td>
                     <td><div>{{index+61}}</div><div>{{item[3]}}</div></td>
                     <td><div>{{index+81}}</div><div>{{item[4]}}</div></td>
+                </tr> -->
+                <tr v-for = "(item,index) in getTwoNum"  :key = index >
+                    <td><div>{{item[0]}}</div></td>
+                    <td><div>{{item[1]}}</div></td>
+                    <td><div>{{item[2]}}</div></td>
+                    <td><div>{{item[3]}}</div></td>
+                    <td><div>{{item[4]}}</div></td>
                 </tr>
             </table>
+            <div class="bottom-content">
+                <div class="left">
+                  <table>
+                    <tr><td  class="border-bottom-left">姓名:</td><td class="border-bottom-right"></td></tr>
+                     <tr><td  class="border-bottom-left">时间:</td><td class="border-bottom-right"></td></tr>
+                     <tr><td  class="border-bottom-left">分数:</td><td class="border-bottom-right">
+                     </td></tr>
+                     <tr><td  class="border-bottom-left">正确率:</td><td class="border-bottom-right"></td></tr>
+                  </table>
+                </div>
+                <div class="right"><span style="padding-left:5px;">错题再测:</span></div>
+            </div>
         </div>
     </body>
     <script>
@@ -72,7 +119,7 @@
         let app = new Vue({
             el: '#app',
             data: {
-                title:'第一学期口算练习题',
+                title:'10以内口加减法算练习题',
                 arr: [[1,2,3,4,5]]
             },
             computed: {
@@ -117,16 +164,19 @@
                 tempArr3.sort(this.randomSort)
                 // console.log(tempArr1)
                 let arr = []
-                let arr1 = tempArr1.slice(0,20)
-                let arr2 = tempArr2.slice(0,20)
-                let arr3 = tempArr3.slice(0,20)
-                let arr4 = tempArr1.slice(20,40)
-                let arr5 = tempArr2.slice(20,40)
+                // let arr1 = tempArr1.slice(0,20)
+                // let arr2 = tempArr2.slice(0,20)
+                // let arr3 = tempArr3.slice(0,20)
+                // let arr4 = tempArr1.slice(20,40)
+                // let arr5 = tempArr2.slice(20,40)
+                let arr1 = tempArr2.slice(0,20)
+                let arr2 = tempArr2.slice(20,40)
+                let arr3 = tempArr2.slice(40,60)
+                let arr4 = tempArr2.slice(60,80)
+                let arr5 = tempArr2.slice(80,100)
                 for(let o = 0; o <= 19; o++) {
                     arr.push([arr1[o],arr2[o],arr3[o],arr4[o],arr5[o]])
                 }
-                console.log(arr1[19])
-                console.log(arr)
                 return arr
                 }
             },
@@ -137,6 +187,5 @@
             }
             }
         })
-    </script>
-    
+    </script> 
 </html>
