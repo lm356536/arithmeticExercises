@@ -62,10 +62,10 @@
 </template>
 <script>
 import { getTwoNums } from '../../lib/utils'
-const INIT_NUM1 = 5
-const INIT_NUM2 = 5
-const INIT_NUM3 = 5
-const MAX_NUM = 20
+const INIT_NUM1 = 1
+const INIT_NUM2 = 1
+const INIT_NUM3 = 1
+const MAX_NUM = 10
 export default {
   data: function () {
     return {
